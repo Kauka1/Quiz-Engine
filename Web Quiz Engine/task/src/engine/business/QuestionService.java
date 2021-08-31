@@ -74,4 +74,9 @@ public class QuestionService {
         }
     }
 
+    public boolean deleteAllQuestions(){
+        questionRepository.deleteAll();
+        return true;
+    }
+
 }

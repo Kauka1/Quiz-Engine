@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**
@@ -46,7 +45,7 @@ public class Completed {
     }
 
     @JsonProperty("id")
-    public int getQuestion() {
+    public long getQuestion() {
         return question.getId();
     }
 

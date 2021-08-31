@@ -1,20 +1,16 @@
 package engine.presentation;
 
 import engine.business.*;
-import engine.persistence.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDateTime;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Controller and frontend for the application
@@ -112,6 +108,11 @@ public class QuestionController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @DeleteMapping("/api/quizzes/deleteAll")
+    public void deleteAllQuestions(){
+        questionService.deleteAllQuestions();
+    }
+
 
     @GetMapping("/api/quizzes/userget")
     public String getEmailName(){
@@ -135,5 +136,7 @@ public class QuestionController {
         }
 
     }
+
+
 
 }
