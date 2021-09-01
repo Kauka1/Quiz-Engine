@@ -39,6 +39,14 @@ public class QuestionService {
         return pagedResult;
     }
 
+    public Question getRandomQuestion(){
+        List<Question> questions = new ArrayList<>();
+        questionRepository.findAll().iterator().forEachRemaining(questions::add);
+        int max = questions.size() - 1;
+        int min = 0;
+        return questions.get((int) Math.floor(Math.random()*((max)-min+1)+min));
+    }
+
     public boolean postAnswer(Question question, Answer answer){
         if (answer == null){
             answer = new Answer();

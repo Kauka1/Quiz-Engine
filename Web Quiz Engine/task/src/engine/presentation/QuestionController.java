@@ -55,6 +55,13 @@ public class QuestionController {
         }
     }
 
+    //Returns a random question for the frontend
+    @GetMapping("/api/quizzes/random")
+    public ResponseEntity<Question> getRandomQuestion(){
+        Question question = questionService.getRandomQuestion();
+        return ResponseEntity.ok(question);
+    }
+
     @GetMapping("/api/quizzes")
     public Page<Question> getAllQuestions(@RequestParam int page){
         return questionService.getAllQuestions(page);
