@@ -39,6 +39,7 @@ public class QuestionService {
         return pagedResult;
     }
 
+    //TODO: Error exception incase list is 0
     public Question getRandomQuestion(){
         List<Question> questions = new ArrayList<>();
         questionRepository.findAll().iterator().forEachRemaining(questions::add);
