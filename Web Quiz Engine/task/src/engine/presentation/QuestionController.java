@@ -16,6 +16,7 @@ import java.util.*;
  * Controller and frontend for the application
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:3000/")
 public class QuestionController {
     @Autowired
     private QuestionService questionService;
@@ -31,10 +32,11 @@ public class QuestionController {
 
     @PostMapping("/api/quizzes")
     public Question createQuestion(@RequestBody @Valid Question question){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = authentication.getName();
+        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        //String email = authentication.getName();
 
-        Optional<User> user = userService.getUserThroughEmail(email);
+        //Optional<User> user = userService.getUserThroughEmail(email);
+        Optional<User> user = userService.getUser();
         question.setUser(user.get());
 
         questionService.createQuestion(question);
@@ -77,11 +79,12 @@ public class QuestionController {
             Boolean correct = questionService.postAnswer(question, answer);
             if (correct) {
                 //Getting the user information to pass into the solved variable
-                Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-                String loginName = authentication.getName();
-                Optional<User> user = userService.getUserThroughEmail(loginName);
+                //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+                //String loginName = authentication.getName();
+                //Optional<User> user = userService.getUserThroughEmail(loginName);
+                Optional<User> user = userService.getUser();
 
-                completedService.addCompleted(question, user.orElseThrow());
+                //completedService.addCompleted(question, user.orElseThrow());
 
                 return new ResponseEntity<>(responseService.getResponse(0), HttpStatus.OK);
             }
@@ -94,6 +97,7 @@ public class QuestionController {
 
     }
 
+    /*
     @PostMapping("/api/register")
     public ResponseEntity<Void> registerUser(@RequestBody @Valid User user){
         if (userService.emailExists(user))
@@ -103,14 +107,18 @@ public class QuestionController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+     */
+
     @DeleteMapping("/api/quizzes/{id}")
     public ResponseEntity<Void> deleteQuestion(@PathVariable int id){
         if (!questionService.questionExists(id))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
+        /*
         if (!questionService.deleteQuestion(id)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
+         */
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
@@ -121,6 +129,7 @@ public class QuestionController {
     }
 
 
+    /*
     @GetMapping("/api/quizzes/userget")
     public String getEmailName(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -143,6 +152,8 @@ public class QuestionController {
         }
 
     }
+
+     */
 
 
 

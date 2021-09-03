@@ -10,9 +10,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Class works with the spring security framework to authenticate users
- */
 public class MyUserDetails implements UserDetails {
     private String userName;
     private String password;
@@ -61,3 +58,4 @@ public class MyUserDetails implements UserDetails {
         return true;
     }
 }
+

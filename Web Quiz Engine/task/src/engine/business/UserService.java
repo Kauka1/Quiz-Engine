@@ -6,13 +6,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
 @Service
 public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
+    @Autowired(required = false)
     PasswordEncoder passwordEncoder;
 
     public void createUser(User user){
@@ -26,7 +25,12 @@ public class UserService {
         return found.isPresent();
     }
 
+    public Optional<User> getUser(){
+        return userRepository.findById(0);
+    }
+
     public Optional<User> getUserThroughEmail(String email){
         return userRepository.findByEmail(email);
     }
 }
+
