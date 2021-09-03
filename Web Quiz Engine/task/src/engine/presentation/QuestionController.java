@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -31,16 +32,17 @@ public class QuestionController {
     private CompletedService completedService;
 
     @PostMapping("/api/quizzes")
-    public Question createQuestion(@RequestBody @Valid Question question){
+    public ResponseEntity<Question> createQuestion(@RequestBody @Valid Question question){
+        System.out.println("quis post attempted");
         //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         //String email = authentication.getName();
 
         //Optional<User> user = userService.getUserThroughEmail(email);
         Optional<User> user = userService.getUser();
-        question.setUser(user.get());
+        //question.setUser(user.get());
 
         questionService.createQuestion(question);
-        return question;
+        return new ResponseEntity<>(question, HttpStatus.OK);
     }
 
     @GetMapping("/api/quizzes/{id}")
@@ -76,8 +78,14 @@ public class QuestionController {
             if (question == null)
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
-            Boolean correct = questionService.postAnswer(question, answer);
-            if (correct) {
+            boolean[] correct = questionService.postAnswer(question, answer);
+            boolean right = true;
+            for (boolean b: correct){
+                if (!b)
+                    right = false;
+            }
+
+            if (right) {
                 //Getting the user information to pass into the solved variable
                 //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
                 //String loginName = authentication.getName();
@@ -88,8 +96,10 @@ public class QuestionController {
 
                 return new ResponseEntity<>(responseService.getResponse(0), HttpStatus.OK);
             }
-            else
+            else {
+                responseService.getResponse(1).setCorrect(correct);
                 return new ResponseEntity<>(responseService.getResponse(1), HttpStatus.OK);
+            }
 
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -115,11 +125,13 @@ public class QuestionController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         /*
-        if (!questionService.deleteQuestion(id)) {
+        if (questionService.deleteQuestion(id)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
+
          */
 
+        questionService.deleteQuestion(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
@@ -158,3 +170,4 @@ public class QuestionController {
 
 
 }
+

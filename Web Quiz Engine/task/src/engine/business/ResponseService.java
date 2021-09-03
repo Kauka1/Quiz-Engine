@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class ResponseService {
     private static List<Response> response = List.of(
-            new Response(true, "Congratulations, you're right!"),
+            new Response(true, "Congratulations, you're right!", new boolean[]{true, true, true, true}),
             new Response(false, "Wrong answer! Please, try again.")
     );
 

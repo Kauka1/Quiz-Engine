@@ -48,7 +48,7 @@ public class QuestionService {
         return questions.get((int) Math.floor(Math.random()*((max)-min+1)+min));
     }
 
-    public boolean postAnswer(Question question, Answer answer){
+    public boolean[] postAnswer(Question question, Answer answer){
         if (answer == null){
             answer = new Answer();
         }
@@ -56,7 +56,16 @@ public class QuestionService {
         Set<Integer> set1 = new HashSet<>(List.of(question.getAnswer()));
         Set<Integer> set2 = new HashSet<>(List.of(answer.getAnswer()));
 
-        return set1.equals(set2);
+        boolean[] correct = new boolean[4];
+        for (int i = 0; i < 4; i++){
+            if (set1.contains(i) && set2.contains(i)){
+                correct[i] = true;
+            } else if (!set1.contains(i) && !set2.contains(i)){
+                correct[i] = true;
+            }
+        }
+
+        return correct;
     }
 
     public boolean questionExists(int id){
@@ -66,14 +75,15 @@ public class QuestionService {
 
     public boolean deleteQuestion(int id){
         Optional<Question> question = questionRepository.findById(id);
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String loginName = authentication.getName();
+        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        //String loginName = authentication.getName();
 
 
-        System.out.println((question.get().getUser().getEmail()));
+        //System.out.println((question.get().getUser().getEmail()));
 
-        String questionName = question.get().getUser().getEmail();
+        //String questionName = question.get().getUser().getEmail();
 
+        /*
         if (loginName.equals(questionName)){
             questionRepository.delete(question.get());
             return true;
@@ -81,6 +91,10 @@ public class QuestionService {
         else {
             return false;
         }
+
+         */
+        questionRepository.delete(question.get());
+        return true;
     }
 
     public boolean deleteAllQuestions(){
