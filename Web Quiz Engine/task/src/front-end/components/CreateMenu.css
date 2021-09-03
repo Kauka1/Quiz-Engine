@@ -1,0 +1,89 @@
+.popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 810px;
+
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.popup-inner{
+    padding: 32px;
+    width: 100%;
+    max-width: 840px;
+    background: rgb(94, 112, 167);
+    margin: 0 auto;
+    text-align: center;
+    border: 5px solid #1e3144;
+    border-radius: 25px;
+}
+
+.popup label {
+    font-weight: bold;
+    text-align: left;
+    display: block;
+}
+
+.popup label, .popup textarea {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: block;
+}
+
+.popup button {
+    margin: auto;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #29304b;
+    border-radius: 15px;
+    display: flex;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    border: 5px solid #213f5e;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100px;
+}
+
+.popup button:hover{
+    background-color: #171e36;
+    border: 5px solid #132b44;
+}
+
+#cancelButton{
+    margin: auto;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #29304b;
+    border-radius: 15px;
+    display: flex;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    border: 5px solid #213f5e;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100px;
+}
+  
+#cancelButton:hover{
+    background-color: #171e36;
+    border: 5px solid #132b44;
+}
+
+  
+
+.options{
+    display: flex;
+    float: left;
+}
