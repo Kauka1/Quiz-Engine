@@ -1,11 +1,11 @@
 # Quiz-Engine
-<img src="https://github.com/Kauka1/Quiz-Engine/blob/main/Web%20Quiz%20Engine/task/src/Pictures/choose.png" height="100px"/> <br>
+<img src="https://github.com/Kauka1/Quiz-Engine/blob/main/Web Quiz Engine/back-end/src/Pictures/choose.png" height="100px"/> <br>
 This is a Web application that tests users on their knowledge with various trivia questions. This app also allows users to create their own questions and store them unto a local database. This application was created using a spring backend with an H2 database and a React frontend.
 
 ## Screenshots:
-<img src="https://github.com/Kauka1/Quiz-Engine/blob/main/Web%20Quiz%20Engine/task/src/Pictures/Screenshot1.png" height="400px"/>
-<img src="https://github.com/Kauka1/Quiz-Engine/blob/main/Web%20Quiz%20Engine/task/src/Pictures/Screenshot2.png" height="400px"/> 
-<img src="https://github.com/Kauka1/Quiz-Engine/blob/main/Web%20Quiz%20Engine/task/src/Pictures/Screenshot3.png" height="400px"/>
+<img src="https://github.com/Kauka1/Quiz-Engine/blob/main/Web Quiz Engine/back-end/src/Pictures/Screenshot1.png" height="400px"/>
+<img src="https://github.com/Kauka1/Quiz-Engine/blob/main/Web Quiz Engine/back-end/src/Pictures/Screenshot2.png" height="400px"/> 
+<img src="https://github.com/Kauka1/Quiz-Engine/blob/main/Web Quiz Engine/back-end/src/Pictures/Screenshot3.png" height="400px"/>
 
 ## Features:
   - ✔️ Solve questions and recieve feedback
