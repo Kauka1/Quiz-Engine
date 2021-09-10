@@ -21,6 +21,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import javax.sql.DataSource;
 import java.util.Arrays;
 
+//Secutiry is disabled until react frontend is implemented
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
