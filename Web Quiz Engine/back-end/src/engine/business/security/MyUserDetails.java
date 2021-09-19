@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//UserDetails is disabled while security is not implemented
 public class MyUserDetails implements UserDetails {
     private String userName;
     private String password;
