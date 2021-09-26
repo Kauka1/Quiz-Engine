@@ -40,6 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().cors().and().authorizeRequests().antMatchers("/").permitAll();
 
+        //renable this when working on sec
         /*
         disable previous line and enable this to reenable proper spring security. Also may need to add cors().and() here
         also make sure to userService.getUser() back to get userThroughEmail() in question controller
