@@ -13,6 +13,7 @@ import java.util.List;
 /**
  * User class that works with spring security for authentication
  */
+//Disabled while the security portion is disabled
 @Entity
 public class User {
 
