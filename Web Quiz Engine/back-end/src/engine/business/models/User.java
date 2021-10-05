@@ -17,6 +17,7 @@ import java.util.List;
 @Entity
 public class User {
 
+    //Used for primary key in table
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(updatable = false, nullable = false)
