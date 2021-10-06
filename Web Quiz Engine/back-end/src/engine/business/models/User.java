@@ -24,6 +24,7 @@ public class User {
     @JsonIgnore
     private int id;
 
+    //Used to identify the creator of a quiz
     @Email
     @NotBlank
     @Pattern(regexp = ".*\\..*")
