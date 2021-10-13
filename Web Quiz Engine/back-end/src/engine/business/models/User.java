@@ -30,6 +30,7 @@ public class User {
     @Pattern(regexp = ".*\\..*")
     private String email;
 
+    //password to login for user
     @Size(min = 5)
     private String password;
 
