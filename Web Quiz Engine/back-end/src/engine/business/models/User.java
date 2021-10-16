@@ -34,6 +34,7 @@ public class User {
     @Size(min = 5)
     private String password;
 
+    //Determines what user has permission for
     private String roles;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
