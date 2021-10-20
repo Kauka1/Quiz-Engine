@@ -28,6 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     DataSource dataSource;
 
+    //injects the userDetails
     @Autowired
     UserDetailsService userDetailsService;
 
