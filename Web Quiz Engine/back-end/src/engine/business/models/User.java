@@ -37,6 +37,7 @@ public class User {
     //Determines what user has permission for
     private String roles;
 
+    //Links users to completed questions list to give results
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Completed> completed;
 
