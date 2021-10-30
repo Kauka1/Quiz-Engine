@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.*;
 
 /**
- * Controller and frontend for the application
+ * Controller and backend for the application
  */
 @RestController
 @CrossOrigin(origins = "http://localhost:3000/")
@@ -37,7 +37,7 @@ public class QuestionController {
 
     @PostMapping("/api/quizzes")
     public ResponseEntity<Question> createQuestion(@RequestBody @Valid Question question){
-        System.out.println("quis post attempted");
+        System.out.println("quiz post attempted");
         //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         //String email = authentication.getName();
 
@@ -49,6 +49,7 @@ public class QuestionController {
         return new ResponseEntity<>(question, HttpStatus.OK);
     }
 
+    //returns a specific question by id
     @GetMapping("/api/quizzes/{id}")
     public ResponseEntity<Question> getQuestion(@PathVariable int id){
         try {
