@@ -35,6 +35,7 @@ public class QuestionController {
     @Autowired
     private CompletedService completedService;
 
+    //Adds a singular question to the database
     @PostMapping("/api/quizzes")
     public ResponseEntity<Question> createQuestion(@RequestBody @Valid Question question){
         System.out.println("quiz post attempted");
@@ -71,11 +72,13 @@ public class QuestionController {
         return ResponseEntity.ok(question);
     }
 
+    //returns all questions in the form of a page, for testing purposes
     @GetMapping("/api/quizzes")
     public Page<Question> getAllQuestions(@RequestParam int page){
         return questionService.getAllQuestions(page);
     }
 
+    //Checks if a submitted answer is correct
     @PostMapping("/api/quizzes/{id}/solve")
     public ResponseEntity<Response> postAnswer(@PathVariable int id, @RequestBody(required = false) Answer answer){
         try {
@@ -124,6 +127,7 @@ public class QuestionController {
 
      */
 
+    //Deletes a question from the database
     @DeleteMapping("/api/quizzes/{id}")
     public ResponseEntity<Void> deleteQuestion(@PathVariable int id){
         if (!questionService.questionExists(id))
@@ -140,6 +144,7 @@ public class QuestionController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    //Deletes all questions from the database
     @DeleteMapping("/api/quizzes/deleteAll")
     public void deleteAllQuestions(){
         questionService.deleteAllQuestions();
