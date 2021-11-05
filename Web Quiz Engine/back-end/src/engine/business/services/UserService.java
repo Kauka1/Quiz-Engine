@@ -17,6 +17,7 @@ public class UserService {
     @Autowired(required = false)
     PasswordEncoder passwordEncoder;
 
+    //creates user in database
     public void createUser(User user){
         String password = passwordEncoder.encode(user.getPassword());
         user.setPassword(password);
