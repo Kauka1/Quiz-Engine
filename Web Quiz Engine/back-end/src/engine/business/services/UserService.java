@@ -24,6 +24,7 @@ public class UserService {
         userRepository.save(user);
     }
 
+    //gets the email from database
     public boolean emailExists(User user){
         Optional<User> found = userRepository.findByEmail(user.getEmail());
         return found.isPresent();
