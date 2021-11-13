@@ -115,6 +115,8 @@ public class QuestionController {
 
     }
 
+    //This function is disabled until the front-end security is confirmed to work
+    //For now, sends in a CORS error on firefox
     /*
     @PostMapping("/api/register")
     public ResponseEntity<Void> registerUser(@RequestBody @Valid User user){
@@ -133,6 +135,7 @@ public class QuestionController {
         if (!questionService.questionExists(id))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
+        //The id feature is disabled. Uncomment when id and security is working again
         /*
         if (questionService.deleteQuestion(id)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
@@ -151,6 +154,7 @@ public class QuestionController {
     }
 
 
+    //This piece of code is disabled until the frontend security is working again, fix the CORS error on firefox
     /*
     @GetMapping("/api/quizzes/userget")
     public String getEmailName(){
@@ -160,6 +164,7 @@ public class QuestionController {
         return loginName;
     }
 
+    //This piece of code is disabled until the frontend security is working again, fix the CORS error on firefox
     @GetMapping("/api/quizzes/completed")
     public ResponseEntity<Page<Completed>> getCompleted(@RequestParam int page){
         try {
