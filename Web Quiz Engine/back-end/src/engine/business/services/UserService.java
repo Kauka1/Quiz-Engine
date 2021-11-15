@@ -31,10 +31,12 @@ public class UserService {
         return found.isPresent();
     }
 
+    //gets saved user from database
     public Optional<User> getUser(){
         return userRepository.findById(0);
     }
 
+    //gets saved user from database with email
     public Optional<User> getUserThroughEmail(String email){
         return userRepository.findByEmail(email);
     }
