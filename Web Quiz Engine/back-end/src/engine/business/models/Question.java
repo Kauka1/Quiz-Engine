@@ -38,6 +38,7 @@ public class Question {
     @OneToMany(mappedBy = "question" ,cascade = CascadeType.ALL)
     private List<Completed> completed;
 
+    //Question constructor for all parameters
     public Question(String title, String text, List<String> options, Integer[] answer) {
         this.title = title;
         this.text = text;
