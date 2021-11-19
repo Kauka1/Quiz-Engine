@@ -13,28 +13,36 @@ import java.util.List;
  */
 @Entity
 public class Question {
+    //primary key
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     private int id;
 
+    //Title of the question on the table
     @NotBlank(message = "Title must not be blank")
     private String title;
 
+    //The question body itself that asks the question
     @NotBlank(message = "Text must not be blank")
     private String text;
 
+    //The 4 options of the question, the not null prevents blank options
     @NotNull
     @Size(min = 2, message = "Not enough options")
     @ElementCollection(targetClass = String.class)
     private List<String> options;
 
+    //integer array that lets backend to identify which options are the correct answer
+    //example: 0 in array means the first option is a right answer. Can be blank
     private Integer[] answer;
 
+    //joins the question table to users
     @ManyToOne
     @JoinColumn(name = "UserID")
     private User user;
 
+    //checks which of the questions are deleted
     @OneToMany(mappedBy = "question" ,cascade = CascadeType.ALL)
     private List<Completed> completed;
 
@@ -46,6 +54,7 @@ public class Question {
         this.answer = answer;
     }
 
+    //question constructor
     public Question() {
         if (this.answer == null)
             this.answer = new Integer[]{};
