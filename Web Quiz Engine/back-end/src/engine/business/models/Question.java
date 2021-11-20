@@ -60,14 +60,17 @@ public class Question {
             this.answer = new Integer[]{};
     }
 
+    //returns the title of the question
     public String getTitle() {
         return title;
     }
 
+    //returns question body text
     public String getText() {
         return text;
     }
 
+    //returns the body of the options
     public List<String> getOptions() {
         return options;
     }
@@ -77,14 +80,17 @@ public class Question {
         return answer;
     }
 
+    //sets the question title
     public void setTitle(String title) {
         this.title = title;
     }
 
+    //sets the body text of the question
     public void setText(String text) {
         this.text = text;
     }
 
+    //sets the options
     public void setOptions(List<String> options) {
         this.options = options;
     }

@@ -16,6 +16,7 @@ public class MyUserDetails implements UserDetails {
     private String password;
     private List<GrantedAuthority> authorities;
 
+    //constructor of user details, used by spring secutiry
     public MyUserDetails(User user){
         this.userName = user.getEmail();
         this.password = user.getPassword();
