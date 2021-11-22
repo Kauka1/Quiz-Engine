@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+//This class is part of the spring secutiry module and uses the user and userdetails entites to check if the inputted
+//password is correct or not
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 

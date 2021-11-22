@@ -60,10 +60,12 @@ public class User {
         return email;
     }
 
+    //sets an email for a specific user
     public void setEmail(String email) {
         this.email = email;
     }
 
+    //returns password as string
     public String getPassword() {
         return password;
     }
