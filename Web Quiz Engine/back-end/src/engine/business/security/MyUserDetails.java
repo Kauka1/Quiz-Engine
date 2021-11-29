@@ -30,11 +30,13 @@ public class MyUserDetails implements UserDetails {
         return authorities;
     }
 
+    //returns password as string
     @Override
     public String getPassword() {
         return password;
     }
 
+    //returns username as string
     @Override
     public String getUsername() {
         return userName;

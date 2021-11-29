@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 @Service
 public class CompletedService {
 
+    //injects the completedRepo
     @Autowired
     private CompletedRepository completedRepository;
 
