@@ -23,15 +23,19 @@ import java.util.*;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000/")
 public class QuestionController {
+
+    //injects question service
     @Autowired
     private QuestionService questionService;
 
     @Autowired
     private ResponseService responseService;
 
+    //injects user service
     @Autowired
     private UserService userService;
 
+    //injects completed service
     @Autowired
     private CompletedService completedService;
 

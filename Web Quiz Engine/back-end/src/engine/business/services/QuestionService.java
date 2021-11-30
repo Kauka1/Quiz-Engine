@@ -16,6 +16,8 @@ import java.util.*;
  */
 @Service
 public class QuestionService {
+
+    //injects question repo
     @Autowired
     QuestionRepository questionRepository;
 

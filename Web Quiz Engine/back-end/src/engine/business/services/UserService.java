@@ -14,7 +14,7 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    //password encoder is provided by the Security Config
+    //password encoder is provided by the Security Config and injects password encoder
     @Autowired(required = false)
     PasswordEncoder passwordEncoder;
 
