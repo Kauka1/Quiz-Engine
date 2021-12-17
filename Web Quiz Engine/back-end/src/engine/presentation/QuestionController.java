@@ -24,18 +24,19 @@ import java.util.*;
 @CrossOrigin(origins = "http://localhost:3000/")
 public class QuestionController {
 
-    //injects question service
+    //injects question services
     @Autowired
     private QuestionService questionService;
 
+    //injects response service
     @Autowired
     private ResponseService responseService;
 
-    //injects user service
+    //injects user services
     @Autowired
     private UserService userService;
 
-    //injects completed service
+    //injects completed services
     @Autowired
     private CompletedService completedService;
 
@@ -151,7 +152,7 @@ public class QuestionController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    //Deletes all questions from the database
+    //Deletes questions from the database
     @DeleteMapping("/api/quizzes/deleteAll")
     public void deleteAllQuestions(){
         questionService.deleteAllQuestions();
